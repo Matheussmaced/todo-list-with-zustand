@@ -17,7 +17,7 @@ export default function CreateTasks() {
   }
 
   return (
-    <main className="w-[432]">
+    <main className="md:w-[432] md:px-0 w-screen px-6">
       <form onSubmit={handleAddTask} className="flex flex-row gap-3">
 
         <input type="text" value={newTask} placeholder="Adicione uma nova tarefa" onChange={(e) => setNewTask(e.target.value)} className="bg-bg border border-borderInput ... flex-1 py-2 px-4 text-gray-400 rounded-md focus:outline-none" />

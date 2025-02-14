@@ -4,7 +4,11 @@ import { useTasksStore } from "@/hooks/tasks";
 import { Check, Trash } from "lucide-react";
 
 export default function TasksComponent() {
-  const { tasks } = useTasksStore()
+  const { tasks, removeTask } = useTasksStore()
+
+  const handleRemoveTask = (id: string | number) => {
+    return removeTask(id)
+  }
 
   return (
     <>
@@ -16,7 +20,7 @@ export default function TasksComponent() {
 
           <div className="flex gap-5">
             <Check className="cursor-pointer hover:text-white transition-colors delay-75" />
-            <Trash className="cursor-pointer hover:text-white transition-colors delay-75" />
+            <Trash className="cursor-pointer hover:text-white transition-colors delay-75" onClick={() => handleRemoveTask(tasks.id)} />
           </div>
         </main>
       ))}

@@ -1,13 +1,19 @@
 'use client'
 
+import { useTasksStore } from "@/hooks/tasks";
 import { FormEvent, useState } from "react";
 
 export default function CreateTasks() {
   const [newTask, setNewTask] = useState('');
+  const { tasks, addTask } = useTasksStore();
 
   const handleAddTask = (e: FormEvent) => {
     e.preventDefault();
+
+    addTask(newTask)
+
     setNewTask('');
+    console.log(tasks)
   }
 
   return (

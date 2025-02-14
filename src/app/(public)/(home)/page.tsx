@@ -12,7 +12,7 @@ export default function Home() {
       <div className="mx-auto flex flex-col justify-center">
         <CreateTasks />
         {tasks.length === 0 ? <span className="mt-16 mb-5 text-gray-300">Sem tarefas para fazer</span> :
-          <span className="mt-16 mb-5 text-gray-300">{tasks.length} - Tarefas para fazer </span>
+          <span className="mt-16 mb-5 text-gray-300">{tasks.length} - Tarefas registradas </span>
         }
         <TasksComponent />
       </div>

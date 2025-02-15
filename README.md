@@ -40,7 +40,7 @@ Este é um projeto simples de **To-Do List** desenvolvido para estudar o gerenci
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/todo-list.git
+git clone  https://github.com/Matheussmaced/todo-list-with-zustand
 
 # Acesse a pasta do projeto
 cd todo-list

@@ -1,34 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📌 To-Do List com Zustand
 
-## Getting Started
+Este é um projeto simples de **To-Do List** desenvolvido para estudar o gerenciamento de estado global com **Zustand**. O objetivo é permitir que o usuário **crie, conclua e exclua tarefas**.
 
-First, run the development server:
+---
+
+## 🖼️ Imagens do Projeto
+
+### 📌 Tela Inicial
+
+![Tela Inicial](/src/public/images/tela-inicial.jpg)
+
+### ✅ Tarefa Concluída
+
+![Tarefa Concluída](/src/public/images/tarefa-concluida.jpg)
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **Next.js** - Framework React
+- **TypeScript** - Tipagem estática para melhor segurança do código
+- **Zustand** - Gerenciamento de estado global
+- **Tailwind** - Estilização dos componentes
+- **Lucide-React** - Ícones visuais para interação
+
+---
+
+## 📌 Funcionalidades
+
+```markdown
+✔ Criar novas tarefas 
+✔ Excluir tarefas 
+✔ Marcar tarefas como concluídas 
+```
+
+---
+
+## 📦 Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/todo-list.git
+
+# Acesse a pasta do projeto
+cd todo-list
+
+# Instale as dependências
+npm install
+```
+
+---
+
+## ▶ Como Rodar o Projeto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse **<http://localhost:3000>** no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-## Learn More
+## 🔧 Como Funciona
 
-To learn more about Next.js, take a look at the following resources:
+```typescript
+import { create } from "zustand";
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+export const useTasksStore = create((set) => ({
+  tasks: [],
+  completed: false,
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  addTask: (text) => set((state) => ({
+    tasks: [...state.tasks, { id: Date.now(), text, completed: false }],
+  })),
 
-## Deploy on Vercel
+  removeTask: (id) => set((state) => ({
+    tasks: state.tasks.filter((task) => task.id !== id),
+  })),
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  changeCompleted: (id) => set((state) => ({
+    tasks: state.tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    ),
+  })),
+}));
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## ✨ Melhorias Futuras
+
+- [ ] Implementar drag-and-drop para reorganizar tarefas
+- [ ] Adicionar categorias para tarefas
+
+---
+
+## 📜 Licença
+
+Este projeto é de **uso livre** para estudo. Fique à vontade para modificar e melhorar. 😊

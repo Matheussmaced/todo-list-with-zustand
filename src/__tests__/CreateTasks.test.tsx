@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 
 describe('CreateTasks Component', () => {
-  it("Renders home page", () => {
+  it("Renders Create Tasks", () => {
     render(<CreateTasks />)
   })
 

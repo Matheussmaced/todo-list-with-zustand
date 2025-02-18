@@ -10,7 +10,7 @@ jest.mock("../hooks/tasks", () => ({
 }));
 
 describe('TasksComponent', () => {
-  it('should be able to add new item to the list', async () => {
+  it('should be able to add a new item to the list and if the new task is being rendered in the component', async () => {
     const addTaskMock = jest.fn();
 
     // Simula o estado retornado pelo hook useTasksStore

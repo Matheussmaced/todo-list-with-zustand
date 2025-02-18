@@ -10,10 +10,13 @@ export default function CreateTasks() {
   const handleAddTask = (e: FormEvent) => {
     e.preventDefault();
 
-    addTask(newTask)
+    // simulando resposta de uma API
+    setTimeout(() => {
+      addTask(newTask)
 
-    setNewTask('');
-    console.log(tasks)
+      setNewTask('');
+      console.log(tasks)
+    }, 500)
   }
 
   return (

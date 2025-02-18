@@ -8,11 +8,16 @@ describe('CreateTasks Component', () => {
   })
 
   it('should br able to add new item to the list', () => {
-    const { getByText } = render(<CreateTasks />)
+    const { getByText, getByPlaceholderText } = render(<CreateTasks />)
 
     //userEvent dispara ações dentro da interface da minha aplicação
     const addButton = getByText('+');
+    const inputElement = getByPlaceholderText('Adicione uma nova tarefa');
 
+
+    // digita no elemento, no caso seria o input
+    userEvent.type(inputElement, 'Nova tarefa')
     userEvent.click(addButton);
   })
+
 })

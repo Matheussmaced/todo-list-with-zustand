@@ -107,13 +107,15 @@ describe('should render Home', () => {
 });
 ```
 
+Testa se o componente `CreateTasks` está criando o novo item.
+
 ```typescript
 import CreateTasks from "@/components/createTasks";
 import { render } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 
 describe('CreateTasks Component', () => {
-  it("Renders home page", () => {
+  it("Renders CreateTasks", () => {
     render(<CreateTasks />);
   });
 
@@ -128,6 +130,8 @@ describe('CreateTasks Component', () => {
   });
 });
 ```
+
+Testa se o componente `TasksComponent` está adicionando um novo item a lista e se a nova tarefa está renderizada no componente .
 
 ```typescript
 import CreateTasks from "@/components/createTasks";
